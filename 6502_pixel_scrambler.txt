@@ -1,0 +1,24 @@
+﻿startvals:
+LDA #$00
+JSR loop1
+secondvals:
+LDA #$0b
+JSR loop2
+loop2:
+    TAX
+    DEX
+    INY
+    TXA
+    STA $0200,Y
+    CMP #$00
+    BNE loop2
+    BEQ startvals
+loop1:
+    TAX
+    INX
+    INY
+    TXA
+    STA $0200,Y
+    CMP #$0c
+    BNE loop1
+    BEQ secondvals
